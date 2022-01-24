@@ -35,22 +35,18 @@ class Calculadora extends Component {
     this.state = {letra: '', dni: '', visible: false};
   }
 
-  letterCalc = () => {
-    var pos = this.state.dni % 23;
+  letterCalc = numero => {
+    var pos = numero % 23;
     this.setState({letra: letras[pos]});
-    Alert.alert(this.state.letra);
-    return (<Text>{this.state.letra}</Text>);
-    
+    return <Text>{this.state.letra}</Text>;
   };
   takeNumber = numero => {
     this.setState({dni: numero});
-    if (this.state.dni.length === 7) {
+    if (numero.length === 8) {
       this.setState({visible: true});
-      this.letterCalc;
+      this.letterCalc(numero);
     } else this.setState({visible: false});
   };
-
- 
 
   render() {
     return (
@@ -64,7 +60,7 @@ class Calculadora extends Component {
           editable
           onChangeText={this.takeNumber}
         />
-        {this.state.visible && <Text>Tu letra es la {letras[this.state.dni % 23]}</Text>}
+        {this.state.visible && <Text>Tu letra es la {this.state.letra}</Text>}
         <Text>{this.state.dni}</Text>
       </View>
     );

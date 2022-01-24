@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, useColorScheme, View} from 'react-native';
-import {TextInput, Button} from 'react-native-paper';
+import {StyleSheet, Text, View} from 'react-native';
 import Calculadora from './components/Calculadora';
 
 export default class App extends Component {
