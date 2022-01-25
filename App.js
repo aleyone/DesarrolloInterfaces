@@ -6,10 +6,10 @@ export default class App extends Component {
   render() {
     return (
       <View styles={styles.container}>
-        <Text styles={styles.inside}>
-          Escribe los números de tu dni y yo te calculo la letra.
-        </Text>
-        <Calculadora />
+        <View styles={styles.inside}>
+          <Text>Escribe los números de tu dni y yo te calculo la letra.</Text>
+          <Calculadora />
+        </View>
       </View>
     );
   }
@@ -17,10 +17,8 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   inside: {
-    flex: 1,
+    flex: 0.7,
     backgroundColor: 'purple',
-    fontSize: 10,
-    fontWeight: '600',
     padding: 4,
     paddingLeft: 12,
     textAlign: 'left',

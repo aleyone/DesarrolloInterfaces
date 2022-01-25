@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
-import {Alert, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import {TextInput} from 'react-native-paper';
 const letras = [
   'T',
@@ -50,7 +50,7 @@ class Calculadora extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{FlexDirection: 'row'}}>
         <TextInput
           label="DNI"
           placeholder="Escribe tu DNI"
@@ -60,6 +60,12 @@ class Calculadora extends Component {
           editable
           onChangeText={this.takeNumber}
         />
+        <View>
+        <TextInput label="LETRA"
+        editable={false} 
+        value={this.state.letra}/>
+        </View>
+
         {this.state.visible && <Text>Tu letra es la {this.state.letra}</Text>}
         <Text>{this.state.dni}</Text>
       </View>
