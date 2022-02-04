@@ -5,9 +5,12 @@ class App extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text style={styles.text}>Calculadora IMC</Text>
         <View style={styles.inside}>
-          <Text style={styles.text}>Calculadora IMC</Text>
           <Calculadora />
+        </View>
+        <View style={styles.vista}>
+          <Text style={styles.text2}>Created for 2nd DAM</Text>
         </View>
       </View>
     );
@@ -21,22 +24,30 @@ const styles = StyleSheet.create({
     alignContent: 'center',
   },
   inside: {
-    flex: 0.9,
+    height: 370,
     backgroundColor: 'black',
-    width: '80%',
+    width: '95%',
     alignSelf: 'center',
-    marginTop: 50,
-    borderRadius: 15,
-    borderWidth: 3,
-    shadowRadius: 10,
+    marginTop: 5,
+    borderRadius: 5,
+    borderWidth: 1,
   },
   text: {
-    color: 'white',
+    color: 'red',
     textAlign: 'center',
     fontSize: 25,
     fontWeight: 'bold',
+    marginTop: 5,
+    marginBottom: 5,
+  },
+  text2: {
+    marginTop: 5,
+    color: 'gray',
     padding: 10,
-    marginBottom: 15,
+    fontSize: 15,
+  },
+  vista: {
+    flex: 0.2,
   },
 });
 

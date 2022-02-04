@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import {Text, StyleSheet} from 'react-native';
+import {Text, StyleSheet, View} from 'react-native';
 import React, {Component} from 'react';
 import {clasificando} from '../Utils/utils';
 
@@ -10,14 +10,19 @@ class Tipos extends Component {
 
   render() {
     return (
-      <Text
-        style={
-          (this.props.imc < 27 && styles.verde) ||
-          (this.props.imc >= 27 && this.props.imc <= 39.9 && styles.naranja) ||
-          (this.props.imc >= 40 && styles.rojo)
-        }>
-        {clasificando(this.props.imc)}
-      </Text>
+      <View>
+        <Text style={styles.textResult}>Resultado</Text>
+        <Text
+          style={
+            (this.props.imc < 27 && styles.verde) ||
+            (this.props.imc >= 27 &&
+              this.props.imc <= 39.9 &&
+              styles.naranja) ||
+            (this.props.imc >= 40 && styles.rojo)
+          }>
+          {clasificando(this.props.imc)}
+        </Text>
+      </View>
     );
   }
 }
@@ -25,24 +30,32 @@ class Tipos extends Component {
 const styles = StyleSheet.create({
   verde: {
     fontSize: 16,
-    paddingTop: 25,
+    marginTop: 3,
     color: 'green',
-    textAlign: 'center',
+    textAlign: 'left',
     fontWeight: 'bold',
+    paddingLeft: 5,
   },
   naranja: {
     fontSize: 16,
-    paddingTop: 25,
+    marginTop: 3,
     color: 'orange',
-    textAlign: 'center',
+    textAlign: 'left',
     fontWeight: 'bold',
+    paddingLeft: 5,
   },
   rojo: {
     fontSize: 16,
-    paddingTop: 25,
+    marginTop: 3,
     color: 'red',
-    textAlign: 'center',
+    textAlign: 'left',
     fontWeight: 'bold',
+    paddingLeft: 5,
+  },
+  textResult:{
+    paddingLeft: 5,
+    color: 'black',
+    fontSize: 16,
   },
 });
 

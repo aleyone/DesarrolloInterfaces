@@ -1,8 +1,9 @@
 /* eslint-disable prettier/prettier */
-import {TextInput, Button} from 'react-native-paper';
+//import {TextInput, Button} from 'react-native-paper';
 import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Tipos from './Tipos';
+import {Input, Button} from 'react-native-elements';
 
 class Calculadora extends Component {
   constructor(props) {
@@ -30,22 +31,24 @@ class Calculadora extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TextInput
-          style={styles.input}
-          label="PESO (kg)"
-          placeholder="Introduce tu peso"
+        <Text style={styles.title}>Datos</Text>
+        <Input
+          label="PESO (Kg)"
+          placeholder="Introduce peso"
           keyboardType="numeric"
           onChangeText={this.setPeso}
+          labelStyle={{color: 'blue', fontWeight: 'bold'}}
         />
-        <TextInput
-          style={styles.input}
+        <Input
           label="ALTURA (cm)"
-          placeholder="Introduce tu altura"
+          placeholder="Introduce altura"
           keyboardType="numeric"
           onChangeText={this.setAltura}
+          labelStyle={{color: 'blue', fontWeight: 'bold'}}
         />
-        <View style={styles.button}>
-          <Button onPress={this.setIMC}>CALCULAR</Button>
+
+        <View>
+          <Button onPress={this.setIMC} title="Calcular IMC" />
         </View>
         <View>
           <Text style={styles.texto}>
@@ -53,48 +56,34 @@ class Calculadora extends Component {
             {this.state.imc}
           </Text>
         </View>
-        <View>
-          {this.state.imc > 0 && <Tipos imc={this.state.imc} />}
-        </View>
+        <View>{this.state.imc > 0 && <Tipos imc={this.state.imc} />}</View>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  input: {
-    color: 'white',
-    backgroundColor: 'lightgray',
-    width: '60%',
-    alignSelf: 'center',
-    borderRadius: 10,
-    borderWidth: 4,
-    borderColor: 'purple',
-    margin: 10,
-  },
   container: {
-    flex: 1,
-    marginBottom: 50,
-    backgroundColor: '#F1F3AA',
-    width: '90%',
+    height: 360,
+    marginBottom: 20,
+    backgroundColor: '#FFFFFF',
+    width: '95%',
     alignSelf: 'center',
-    paddingTop: 20,
-  },
-  button: {
-    marginTop: 60,
-    borderWidth: 4,
-    backgroundColor: '#AAE3F3',
-    borderColor: 'blue',
-    width: '50%',
-    color: 'white',
-    alignSelf: 'center',
-    borderRadius: 8,
+    paddingTop: 10,
   },
   texto: {
     fontSize: 16,
-    paddingTop: 25,
+    marginTop: 3,
     color: 'red',
-    textAlign: 'center',
+    textAlign: 'left',
+    fontWeight: 'bold',
+    paddingLeft: 5,
+  },
+  title: {
+    fontSize: 20,
+    textAlign: 'left',
+    color: 'red',
+    paddingLeft: 20,
     fontWeight: 'bold',
   },
 });
